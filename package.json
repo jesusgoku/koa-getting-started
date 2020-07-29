@@ -10,7 +10,13 @@
     "code:format": "prettier './src/**/**.{js,jsx,ts,tsx}'",
     "code:check:rules": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
   },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "koa": "^2.13.0"
+  },
   "devDependencies": {
+    "nodemon": "^2.0.4",
     "poetic": "^1.5.0"
   }
 }
