@@ -4,6 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "start": "node -r esm -r dotenv/config src",
+    "dev": "nodemon -r esm -r dotenv/config src",
+    "start:debug": "node --inspect -r esm -r dotenv/config src",
+    "dev:debug": "nodemon --inspect -r esm -r dotenv/config src",
     "code:check": "yarn code:lint; yarn code:format --check",
     "code:clean": "yarn code:lint --fix; yarn code:format --write",
     "code:lint": "eslint --ext .js,.jsx,.ts,.tsx \"src/\"",
@@ -11,9 +15,12 @@
     "code:check:rules": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
   },
   "dependencies": {
+    "@koa/router": "^9.3.1",
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
-    "koa": "^2.13.0"
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "log4js": "^6.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4",
