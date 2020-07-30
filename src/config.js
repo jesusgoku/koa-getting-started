@@ -1,3 +1,3 @@
-const { PORT = 5000 } = process.env;
+const { PORT = 5000, DEBUG_LEVEL } = process.env;
 
-export { PORT };
+export { PORT, DEBUG_LEVEL };
