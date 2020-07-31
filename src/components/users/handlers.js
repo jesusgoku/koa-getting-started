@@ -8,4 +8,10 @@ async function getUser(ctx) {
   ctx.body = await services.getUser(ctx.state.params.id);
 }
 
-export { getUsers, getUser };
+async function deleteUser(ctx) {
+  await services.deleteUser(ctx.state.params.id);
+
+  ctx.status = 204;
+}
+
+export { getUsers, getUser, deleteUser };

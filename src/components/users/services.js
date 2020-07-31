@@ -27,4 +27,11 @@ function getUser(id) {
   }).then(extractDataFromResponse);
 }
 
-export { getUsers, getUser };
+function deleteUser(id) {
+  return client({
+    url: `/users/${id}`,
+    method: 'DELETE',
+  }).then(extractDataFromResponse);
+}
+
+export { getUsers, getUser, deleteUser };

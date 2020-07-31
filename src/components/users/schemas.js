@@ -9,4 +9,8 @@ const getUserParamsSchema = joi.object({
   id: joi.number().required(),
 });
 
-export { getUsersQuerySchema, getUserParamsSchema };
+const deleteUserParamsSchema = joi.object({
+  id: joi.number().required(),
+});
+
+export { getUsersQuerySchema, getUserParamsSchema, deleteUserParamsSchema };
