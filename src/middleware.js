@@ -1,5 +1,12 @@
 import logger from './logger';
 
+/**
+ * @typedef {Object} Schema
+ * @property {string} section - query, body or params
+ * @property {Schema} schema - Joi schema
+ * @property {Object} options - Joi schema validate options (https://hapi.dev/module/joi/api/?v=17.1.1#anyvalidatevalue-options)
+ */
+
 async function handleErrors(ctx, next) {
   try {
     await next();
@@ -26,4 +33,33 @@ async function loggerRequests(ctx, next) {
   );
 }
 
-export { handleErrors, loggerRequests };
+/**
+ * Validate schema into request sections and sanitize data in ctx.state[section]
+ *
+ * @param {Schema[]} schemas - schemas to validate
+ *
+ * @return {Function} - async middleware for Koa
+ */
+function validateSchemas(schemas) {
+  return async (ctx, next) => {
+    const promises = schemas
+      .filter(({ section }) => ['body', 'query', 'params'].includes(section))
+      .map(({ section, schema, options }) =>
+        schema
+          .validateAsync(ctx.request[section] || ctx[section], options)
+          .then((data) => ({ section, data })),
+      );
+
+    try {
+      (await Promise.all(promises)).forEach(({ section, data }) => {
+        ctx.state[section] = { ...(ctx.request[section] || ctx[section]), ...data };
+      });
+
+      await next();
+    } catch (err) {
+      ctx.throw(400, err);
+    }
+  };
+}
+
+export { handleErrors, loggerRequests, validateSchemas };
