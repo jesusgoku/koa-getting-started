@@ -14,7 +14,7 @@ async function handleErrors(ctx, next) {
     const { message, status = 500, expose } = err;
 
     logger.error(
-      `${ctx.request.method} ${ctx.request.url} - ${ctx.request.ip} - ${status} ${message}`,
+      `${ctx.request.ip} > ${ctx.request.method} ${ctx.request.url} < ${status} ${message}`,
     );
 
     ctx.status = status;
@@ -29,7 +29,7 @@ async function loggerRequests(ctx, next) {
   await next();
 
   logger.info(
-    `${ctx.request.method} ${ctx.request.url} - ${ctx.request.ip} - ${ctx.response.status} ${ctx.response.message}`,
+    `${ctx.request.ip} > ${ctx.request.method} ${ctx.request.url} < ${ctx.response.status} ${ctx.response.message}`,
   );
 }
 
