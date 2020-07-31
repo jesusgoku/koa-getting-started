@@ -1,6 +1,6 @@
 async function home(ctx) {
-  ctx.set('Content-Type', 'application/json');
-  ctx.body = JSON.stringify({ message: 'Hello World' });
+  ctx.body = { message: 'Hello World' };
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export { home };
