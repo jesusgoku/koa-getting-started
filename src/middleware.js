@@ -54,11 +54,11 @@ function validateSchemas(schemas) {
       (await Promise.all(promises)).forEach(({ section, data }) => {
         ctx.state[section] = { ...(ctx.request[section] || ctx[section]), ...data };
       });
-
-      await next();
     } catch (err) {
       ctx.throw(400, err);
     }
+
+    await next();
   };
 }
 
