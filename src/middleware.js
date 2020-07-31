@@ -12,8 +12,9 @@ async function handleErrors(ctx, next) {
     await next();
   } catch (err) {
     const { message, status = 500, expose } = err;
+    const level = expose ? 'warn' : 'error';
 
-    logger.error(
+    logger[level](
       `${ctx.request.ip} > ${ctx.request.method} ${ctx.request.url} < ${status} ${message}`,
     );
 
