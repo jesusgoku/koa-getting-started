@@ -16,6 +16,7 @@
     "code:check:rules": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
   },
   "dependencies": {
+    "@koa/cors": "^3.1.0",
     "@koa/router": "^9.3.1",
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
