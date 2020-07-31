@@ -8,6 +8,7 @@
     "dev": "nodemon -r esm -r dotenv/config src",
     "start:debug": "node --inspect -r esm -r dotenv/config src",
     "dev:debug": "nodemon --inspect -r esm -r dotenv/config src",
+    "release": "standard-version",
     "code:check": "yarn code:lint; yarn code:format --check",
     "code:clean": "yarn code:lint --fix; yarn code:format --write",
     "code:lint": "eslint --ext .js,.jsx,.ts,.tsx \"src/\"",
@@ -28,6 +29,7 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "nodemon": "^2.0.4",
-    "poetic": "^1.5.0"
+    "poetic": "^1.5.0",
+    "standard-version": "^8.0.2"
   }
 }
