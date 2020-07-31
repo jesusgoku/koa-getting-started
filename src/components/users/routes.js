@@ -30,4 +30,13 @@ router.post(
   handlers.createUser,
 );
 
+router.patch(
+  '/:id',
+  validateSchemas([
+    { section: 'params', schema: schemas.updateUserParamsSchema },
+    { section: 'body', schema: schemas.updateUserBodySchema },
+  ]),
+  handlers.updateUser,
+);
+
 export default router;

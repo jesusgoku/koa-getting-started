@@ -19,4 +19,21 @@ const createUserBodySchema = joi.object({
   email: joi.string().email().required(),
 });
 
-export { getUsersQuerySchema, getUserParamsSchema, deleteUserParamsSchema, createUserBodySchema };
+const updateUserParamsSchema = joi.object({
+  id: joi.number().required(),
+});
+
+const updateUserBodySchema = joi.object({
+  name: joi.string().trim(),
+  username: joi.string().trim(),
+  email: joi.string().email(),
+});
+
+export {
+  getUsersQuerySchema,
+  getUserParamsSchema,
+  deleteUserParamsSchema,
+  createUserBodySchema,
+  updateUserParamsSchema,
+  updateUserBodySchema,
+};

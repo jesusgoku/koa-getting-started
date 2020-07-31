@@ -19,4 +19,8 @@ async function createUser(ctx) {
   ctx.body = await services.createUser(ctx.state.body);
 }
 
-export { getUsers, getUser, deleteUser, createUser };
+async function updateUser(ctx) {
+  ctx.body = await services.updateUser(ctx.state.params.id, ctx.state.body);
+}
+
+export { getUsers, getUser, deleteUser, createUser, updateUser };

@@ -42,4 +42,12 @@ function createUser(data) {
   }).then(extractDataFromResponse);
 }
 
-export { getUsers, getUser, deleteUser, createUser };
+function updateUser(id, data) {
+  return client({
+    url: `/users/${id}`,
+    method: 'PATCH',
+    data,
+  }).then(extractDataFromResponse);
+}
+
+export { getUsers, getUser, deleteUser, createUser, updateUser };
