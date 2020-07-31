@@ -19,8 +19,10 @@
   "dependencies": {
     "@koa/cors": "^3.1.0",
     "@koa/router": "^9.3.1",
+    "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
+    "joi": "^17.1.1",
     "koa": "^2.13.0",
     "koa-bodyparser": "^4.3.0",
     "koa-helmet": "^5.2.0",
