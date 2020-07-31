@@ -1,3 +1,5 @@
+# Use yarn as package manager
+package-lock.json
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,dotenv,visualstudiocode,windows,linux,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,dotenv,visualstudiocode,windows,linux,macos
