@@ -13,4 +13,10 @@ const deleteUserParamsSchema = joi.object({
   id: joi.number().required(),
 });
 
-export { getUsersQuerySchema, getUserParamsSchema, deleteUserParamsSchema };
+const createUserBodySchema = joi.object({
+  name: joi.string().required(),
+  username: joi.string().required(),
+  email: joi.string().email().required(),
+});
+
+export { getUsersQuerySchema, getUserParamsSchema, deleteUserParamsSchema, createUserBodySchema };

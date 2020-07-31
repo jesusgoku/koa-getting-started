@@ -24,4 +24,10 @@ router.delete(
   handlers.deleteUser,
 );
 
+router.post(
+  '/',
+  validateSchemas([{ section: 'body', schema: schemas.createUserBodySchema }]),
+  handlers.createUser,
+);
+
 export default router;

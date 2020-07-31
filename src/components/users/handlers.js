@@ -14,4 +14,9 @@ async function deleteUser(ctx) {
   ctx.status = 204;
 }
 
-export { getUsers, getUser, deleteUser };
+async function createUser(ctx) {
+  ctx.status = 201;
+  ctx.body = await services.createUser(ctx.state.body);
+}
+
+export { getUsers, getUser, deleteUser, createUser };

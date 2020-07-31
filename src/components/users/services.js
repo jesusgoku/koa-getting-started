@@ -34,4 +34,12 @@ function deleteUser(id) {
   }).then(extractDataFromResponse);
 }
 
-export { getUsers, getUser, deleteUser };
+function createUser(data) {
+  return client({
+    url: '/users',
+    method: 'POST',
+    data,
+  }).then(extractDataFromResponse);
+}
+
+export { getUsers, getUser, deleteUser, createUser };
